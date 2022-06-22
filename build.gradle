@@ -1,0 +1,65 @@
+plugins {
+    id 'java'
+//    id 'com.google.protobuf' version "0.8.12"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+sourceSets {
+    main {
+//        proto {
+//            srcDir 'src/main/proto'
+//        }
+//        java {
+//            // include self written and generated code
+//            srcDirs 'src/main/java', 'build/generated/sources/protobuf/'
+//        }
+    }
+    // remove the test configuration - at least in your example you don't have a special test proto file
+}
+
+//protobuf {
+//    // Configure the protoc executable
+//    protoc {
+//        // Download from repositories
+//        artifact = 'com.google.protobuf:protoc:3.0.0-alpha-3'
+//    }
+//    generatedFilesBaseDir = "$projectDir/build/generated/sources/protobuf/"
+//}
+
+repositories {
+    maven {
+        url 'http://tsa.oa.com/nexus3/repository/maven-public/'
+    }
+    maven {
+        url 'https://mirrors.tencent.com/repository/maven/tencent_public/'
+    }
+}
+
+dependencies {
+    compile 'org.apache.logging.log4j:log4j-core:2.17.1'
+    compile 'org.apache.logging.log4j:log4j-api:2.17.1'
+//    compile 'com.google.protobuf:protobuf-java:3.4.0'
+//    compile 'com.google.protobuf:protobuf-gradle-plugin:0.8.1'
+    compile 'com.netflix.conductor:conductor-client:2.31.0'
+
+    // gson
+    compile 'com.google.code.gson:gson:2.8.2'
+
+    // jackson
+    compile 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.8.10'
+
+    // https://mvnrepository.com/artifact/org.apache.commons/commons-lang3
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+
+// https://mvnrepository.com/artifact/org.apache.directory.studio/org.apache.commons.lang
+    implementation group: 'org.apache.directory.studio', name: 'org.apache.commons.lang', version: '2.6'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    compile group: "com.alibaba", name: "fastjson", version: "1.2.78", force: true
+
+    compile('commons-codec:commons-codec:1.11') {
+        force = true
+    }
+}
