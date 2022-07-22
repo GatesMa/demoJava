@@ -1,0 +1,14 @@
+.idea/
+.gradle/
+log/
+logs/
+**/log/
+**/logs/
+*.DS_Store
+**/.settings/
+**/build/
+**/out/
+
+.codecc
+build.yml
+spring.log
